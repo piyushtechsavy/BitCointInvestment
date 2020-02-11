@@ -1,35 +1,43 @@
-def maxProfitDnC(prices):
-  print()
+from maxprofitlinear import ArrayMaxLinear
 
-def maxProfitLinear(prices):
-  size = len(prices)
-  dayIndxToBuy = 0
-  minIndex = 0
-  dayIndxToSell = 0
-  maxProf = prices[dayIndxToSell] - prices[dayIndxToBuy] 
-  minElement = prices[dayIndxToBuy] 
-      
-  for i in range( 1, size ): 
-    if (prices[i] - minElement > maxProf): 
-      maxProf = prices[i] - minElement 
-      dayIndxToSell = i
-      dayIndxToBuy = minIndex
-  
-    if (prices[i] < minElement): 
-      minElement = prices[i] 
-      minIndex = i
-  
-  
-  outputFile = open("outputPS8.txt", "w")
-  outputFile.write("Maximum Profit (Iterative solution): %d \n" %(maxProf))
-  outputFile.write("Day to buy: %d \n" %(dayIndxToBuy + 1))
-  outputFile.write("Day to sell: %d \n" %(dayIndxToSell + 1))
+def getArrayMin(prices, start, end):
+  min = prices[start]
+  for i in range(start+1 , end+1):
+    if(min > prices[i]):
+      min = prices[i]
 
-  outputFile.close()
+  return min   
+
+def getArrayMax(prices, start, end):
+  max = prices[start]
+  for i in range(start+1 , end+1):
+    if(max < prices[i]):
+      max = prices[i]
+
+  return max   
+
+def maxProfitDnC(prices, start, end):
+  if(start >= end):
+    return -1
+
+  mid = int((start + end )/2)
   
+  leftProfit = maxProfitDnC(prices, start, mid)
+  rightProfit = maxProfitDnC(prices, mid+1, end)
   
+  minLeft = getArrayMin(prices, start,mid)
+  maxRight = getArrayMax(prices, mid, end)
+
+  profit = maxRight - minLeft
+
+
+  return max(leftProfit, rightProfit, profit)
 
   
+
+
+  
+    
 def readInputFile():
   prices = []
   inputFile = open("inputPS8.txt", "r")
@@ -43,5 +51,8 @@ def readInputFile():
   return prices
 
 prices = readInputFile()
-maxProfitLinear(prices)
+linearProfit = ArrayMaxLinear()
+linearProfit.maxProfitLinear(prices)
+
 print(prices)
+print(maxProfitDnC(prices,0, len(prices)-1))

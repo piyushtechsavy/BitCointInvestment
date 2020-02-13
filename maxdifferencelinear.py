@@ -1,5 +1,5 @@
-class ArrayMaxLinear:
-  def maxProfitLinear(self,prices):
+class ArrayMaxDifferenceLinear:
+  def maxDifference(self,prices):
     size = len(prices)
     dayIndxToBuy = 0
     minIndex = 0
@@ -18,7 +18,7 @@ class ArrayMaxLinear:
         minIndex = i
     
     
-    outputFile = open("outputPS8.txt", "w")
+    outputFile = open("outputPS8.txt", "a")
     outputFile.write("Maximum Profit (Iterative solution): %d \n" %(maxProf))
     outputFile.write("Day to buy: %d \n" %(dayIndxToBuy + 1))
     outputFile.write("Day to sell: %d \n" %(dayIndxToSell + 1))

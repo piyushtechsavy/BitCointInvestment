@@ -1,3 +1,18 @@
-Maximum Profit (Iterative solution): 8 
-Day to buy: 3 
-Day to sell: 6 
+Maximum Profit (Iterative solution): 7317 
+Day to buy: 11 
+Day to sell: 13 
+Maximum Profit (Recursive solution): 7317 
+Day to buy: 11 
+Day to sell: 13 
+Maximum Profit (Iterative solution): 7317 
+Day to buy: 11 
+Day to sell: 13 
+Maximum Profit (Recursive solution): 7317 
+Day to buy: 11 
+Day to sell: 13 
+Maximum Profit (Iterative solution): 7317 
+Day to buy: 11 
+Day to sell: 13 
+Maximum Profit (Recursive solution): 7317 
+Day to buy: 11 
+Day to sell: 13 
